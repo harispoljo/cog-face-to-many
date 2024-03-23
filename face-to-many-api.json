@@ -245,15 +245,15 @@
       "preview_method": "none",
       "vae_decode": "true",
       "model": [
-        "41",
+        "2",
         0
       ],
       "positive": [
-        "41",
+        "2",
         1
       ],
       "negative": [
-        "41",
+        "2",
         2
       ],
       "latent_image": [
@@ -319,72 +319,6 @@
     "class_type": "Control Net Stacker",
     "_meta": {
       "title": "Control Net Stacker"
-    }
-  },
-  "35": {
-    "inputs": {
-      "instantid_file": "instantid-ip-adapter.bin"
-    },
-    "class_type": "InstantIDModelLoader",
-    "_meta": {
-      "title": "Load InstantID Model"
-    }
-  },
-  "36": {
-    "inputs": {
-      "provider": "CUDA"
-    },
-    "class_type": "InstantIDFaceAnalysis",
-    "_meta": {
-      "title": "InstantID Face Analysis"
-    }
-  },
-  "40": {
-    "inputs": {
-      "control_net_name": "instantid-controlnet.safetensors"
-    },
-    "class_type": "ControlNetLoader",
-    "_meta": {
-      "title": "Load ControlNet Model"
-    }
-  },
-  "41": {
-    "inputs": {
-      "weight": 1,
-      "start_at": 0,
-      "end_at": 1,
-      "instantid": [
-        "35",
-        0
-      ],
-      "insightface": [
-        "36",
-        0
-      ],
-      "control_net": [
-        "40",
-        0
-      ],
-      "image": [
-        "67",
-        0
-      ],
-      "model": [
-        "2",
-        0
-      ],
-      "positive": [
-        "2",
-        1
-      ],
-      "negative": [
-        "2",
-        2
-      ]
-    },
-    "class_type": "ApplyInstantID",
-    "_meta": {
-      "title": "Apply InstantID"
     }
   },
   "49": {

@@ -130,9 +130,6 @@ class Predictor(BasePredictor):
         lora_loader["lora_name_1"] = lora_name
         lora_loader["lora_wt_1"] = kwargs["lora_scale"]
 
-        instant_id = workflow["41"]["inputs"]
-        instant_id["weight"] = kwargs["instant_id_strength"]
-
         sampler = workflow["4"]["inputs"]
         sampler["denoise"] = kwargs["denoising_strength"]
         sampler["seed"] = kwargs["seed"]
@@ -200,9 +197,6 @@ class Predictor(BasePredictor):
             le=1,
             description="Strength of depth controlnet. The bigger this is, the more controlnet affects the output.",
         ),
-        instant_id_strength: float = Input(
-            default=1, description="How strong the InstantID will be.", ge=0, le=1
-        ),
         seed: int = Input(
             default=None, description="Fix the random seed for reproducibility"
         ),
@@ -245,7 +239,6 @@ class Predictor(BasePredictor):
             prompt=prompt,
             negative_prompt=negative_prompt,
             prompt_strength=prompt_strength,
-            instant_id_strength=instant_id_strength,
             lora_url=custom_lora_url,
             lora_scale=lora_scale,
             control_depth_strength=control_depth_strength,
